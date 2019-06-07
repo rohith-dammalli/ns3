@@ -20,7 +20,8 @@ public class ProcessDataEntity implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="processDataId")
 	private int processDataId;
 	
 	@Column(name="process_queueId")

@@ -9,5 +9,5 @@ import com.chainlogix.entity.ClientDataEntity;
 public interface ClientDataRepository extends JpaRepository<ClientDataEntity, Integer> {
 
 	
-	public ClientDataEntity findFirstByNameOrderByClientpkDesc(String Name);
+	public ClientDataEntity findFirstByFirstNameOrderByClientpkDesc(String Name);
 }

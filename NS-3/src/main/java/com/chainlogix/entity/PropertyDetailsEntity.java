@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class PropertyDetailsEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="property_detailsId")
 	private int propertyDetailId;
 	

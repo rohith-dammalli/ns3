@@ -3,35 +3,50 @@ package com.chainlogix.dto;
 public class ClientInfoDto {
 
 	
-	private int clientInformation;
-	public int getClientInformation() {
-		return clientInformation;
-	}
-	public void setClientInformation(int clientInformation) {
-		this.clientInformation = clientInformation;
-	}
-	private String clientName;
-	private String clientcontactNum;
-	private String clientMailId;
-	
-	public String getClientName() {
-		return clientName;
-	}
-	public void setClientName(String clientName) {
-		this.clientName = clientName;
-	}
-	public String getClientcontactNum() {
-		return clientcontactNum;
-	}
-	public void setClientcontactNum(String clientcontactNum) {
-		this.clientcontactNum = clientcontactNum;
-	}
-	public String getClientMailId() {
-		return clientMailId;
-	}
-	public void setClientMailId(String clientMailId) {
-		this.clientMailId = clientMailId;
-	}
+	private String firstName;
+	private String lastName;
+  private String company;
+  private String designation;
+  private String mailaddress;
+ private String contact;
+ 
+
+public String getCompany() {
+	return company;
+}
+public void setCompany(String company) {
+	this.company = company;
+}
+public String getDesignation() {
+	return designation;
+}
+public void setDesignation(String designation) {
+	this.designation = designation;
+}
+public String getMailaddress() {
+	return mailaddress;
+}
+public void setMailaddress(String mailaddress) {
+	this.mailaddress = mailaddress;
+}
+public String getContact() {
+	return contact;
+}
+public void setContact(String contact) {
+	this.contact = contact;
+}
+public String getFirstName() {
+	return firstName;
+}
+public void setFirstName(String firstName) {
+	this.firstName = firstName;
+}
+public String getLastName() {
+	return lastName;
+}
+public void setLastName(String lastName) {
+	this.lastName = lastName;
+} 
 	
 	
 }

@@ -110,8 +110,8 @@ public class TitleServiceImpl implements ItitleSearch {
 	@Override
 	public String saveProcesStatus(ProcessStatusDto processStatusDto) {
 		ClientDataEntity clienInfoEntity = new ClientDataEntity();
-		clienInfoEntity.setName("hello");
-		clienInfoEntity = clientDataRepository.saveAndFlush(clienInfoEntity);
+		
+		/* clienInfoEntity = clientDataRepository.saveAndFlush(clienInfoEntity); */
 		
 		Optional<AddressEntity> adr=addressRepository.findById(processStatusDto.getAddressId());
 		pqueue.setAddressEntity(adr.get());
@@ -132,9 +132,10 @@ public class TitleServiceImpl implements ItitleSearch {
 			ps.setCompletedBy(new Timestamp(System.currentTimeMillis()));
 			ps.setProcessStatus(processStatusDto.getStatus());
 			pse.add(ps);
+			processStatusRepository.saveAndFlush(ps);
 		}
 		
-		processStatusRepository.saveAll(pse);
+		/* processStatusRepository.saveAll(pse); */
 		
 		if(!StringUtils.isEmpty(res))
 		{

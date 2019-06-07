@@ -64,14 +64,17 @@ public class TitleSearchController {
 	public ResponseEntity<String> saveClientInfo(@RequestBody ClientInfoDto clientInfoDto) throws MessagingException
 	{
 		ClientDataEntity clienInfoEntity = new ClientDataEntity();
-		clienInfoEntity.setContactNumber(clientInfoDto.getClientcontactNum());
-		clientInfoDto.setClientMailId(clientInfoDto.getClientMailId());
-		clienInfoEntity.setName(clientInfoDto.getClientName());
+		clienInfoEntity.setFirstName(clientInfoDto.getFirstName());
+		clienInfoEntity.setLastName(clientInfoDto.getLastName());
+		clienInfoEntity.setCompany(clientInfoDto.getCompany());
+		clienInfoEntity.setDesignation(clientInfoDto.getDesignation());
+		clienInfoEntity.setMailaddress(clientInfoDto.getMailaddress());
+		clienInfoEntity.setContact(clientInfoDto.getContact());
 		clienInfoEntity = clientDataRepository.saveAndFlush(clienInfoEntity);
 		ProcessQueueEntity processQueueEntity =	processQueueRepository.findFirstByOrderByProcessQueueIdDesc();
 		processQueueEntity.setClientDataEntity(clienInfoEntity);
 		processQueueRepository.saveAndFlush(processQueueEntity);
-		 ititleSearch.sendMail(); 
+		 //ititleSearch.sendMail(); 
 		if(!StringUtils.isEmpty(clienInfoEntity))
 			return new ResponseEntity<>("Client Data Saved successfully",HttpStatus.OK);
 		else
@@ -166,7 +169,7 @@ public class TitleSearchController {
 	
 	@GetMapping(value="/fetchClientId")
 	public ResponseEntity<String> getClientIdFromName(@RequestParam String clientName) {
-		ClientDataEntity clientDataEntity = clientDataRepository.findFirstByNameOrderByClientpkDesc(clientName);
+		ClientDataEntity clientDataEntity = clientDataRepository.findFirstByFirstNameOrderByClientpkDesc(clientName);
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		return new ResponseEntity<>(gson.toJson(clientDataEntity), HttpStatus.OK);
 		

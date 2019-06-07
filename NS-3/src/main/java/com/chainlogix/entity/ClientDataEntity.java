@@ -20,44 +20,72 @@ public class ClientDataEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="client_pk")
 	private int clientpk;
 	
-	@Column(name="client_name")
-	private String name;
+	@Column(name="firstname")
+	private String firstName;
 	
-	@Column(name="client_mailId")
-	private String mailId;
+	@Column(name="lastname")
+	private String lastName;
 	
-	@Column(name="client_contact")
-	private String contactNumber;
+	@Column(name="company")
+	  private String company;
+	
+	@Column(name="designation")
+	  private String designation;
+	  
+	  
+	@Column(name="mailaddress")
+	  private String mailaddress;
+	  
+	@Column(name="contact")
+	 private String contact;
+	 
 	
 	
-	
-	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
+	}
+	public String getDesignation() {
+		return designation;
+	}
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+	public String getMailaddress() {
+		return mailaddress;
+	}
+	public void setMailaddress(String mailaddress) {
+		this.mailaddress = mailaddress;
+	}
+	public String getContact() {
+		return contact;
+	}
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
 	public int getClientpk() {
 		return clientpk;
 	}
 	public void setClientpk(int clientpk) {
 		this.clientpk = clientpk;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getMailId() {
-		return mailId;
-	}
-	public void setMailId(String mailId) {
-		this.mailId = mailId;
-	}
-	public String getContactNumber() {
-		return contactNumber;
-	}
-	public void setContactNumber(String contactNumber) {
-		this.contactNumber = contactNumber;
-	}
+	
 }
